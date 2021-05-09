@@ -21,6 +21,11 @@ namespace Oczko.Core
         public CardColour CardColour { get; set; }
         public int CardValue { get; set; }
 
+        public override string ToString()
+        {
+            var cardName = CardType.ToString() + " of " + CardColour.ToString() + "s";
+            return cardName;
+        }
         private int GetCardValue(CardType cardType)
         {
             var val = 0;

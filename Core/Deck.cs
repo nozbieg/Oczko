@@ -16,7 +16,7 @@ namespace Oczko.Core
 
         public IList<Card> Cards { get; set; }
 
-        public IList<Card> GetCards()
+        IList<Card> GetCards()
         {           
             List<Card> cards = new List<Card>();
             foreach(var type in (CardType[])Enum.GetValues(typeof(CardType)))
