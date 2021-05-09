@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oczko.Core;
+using System;
 
 namespace Oczko
 {
@@ -6,7 +7,7 @@ namespace Oczko
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var deck = new Deck();   
         }
     }
 }
