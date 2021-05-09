@@ -11,7 +11,7 @@ namespace Oczko.Core
     {
         public Deck()
         {
-            GetCards();
+            Cards = GetCards();
         }
 
         public IList<Card> Cards { get; set; }
