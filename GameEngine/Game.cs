@@ -9,7 +9,7 @@ namespace Oczko.GameEngine
 {
     public class Game
     {
-        public Game() 
+        public Game()
         {
             Deck = new Deck();
             PlayerCards = new List<Card>();
@@ -33,7 +33,7 @@ namespace Oczko.GameEngine
         public void CountPlayerCardsValue(IList<Card> playerCards)
         {
             ActualValue = 0;
-            foreach(var card in playerCards)
+            foreach (var card in playerCards)
             {
                 ActualValue += card.CardValue;
             }
@@ -43,7 +43,7 @@ namespace Oczko.GameEngine
         {
             Console.WriteLine();
             Console.WriteLine("Play again? Y\\N");
-            var key =Console.ReadKey(true);
+            var key = Console.ReadKey(true);
             if (key.Key == ConsoleKey.Y)
             {
                 return true;
@@ -91,7 +91,7 @@ namespace Oczko.GameEngine
             Console.Clear();
             Console.WriteLine("Your actual Card value is: " + actualValue);
             Console.WriteLine("Cards on hand: ");
-            foreach(var card in playerCards)
+            foreach (var card in playerCards)
             {
                 Console.WriteLine(card.ToString());
             }
@@ -100,13 +100,13 @@ namespace Oczko.GameEngine
         }
 
         public bool Continue()
-        {       
+        {
             var key = Console.ReadKey(true);
-            if(key.Key == ConsoleKey.Y)
+            if (key.Key == ConsoleKey.Y)
             {
                 return true;
             }
-            else if(key.Key == ConsoleKey.N)
+            else if (key.Key == ConsoleKey.N)
             {
                 return false;
             }
@@ -116,7 +116,7 @@ namespace Oczko.GameEngine
                 Continue();
                 return false;
             }
-            
+
         }
 
 
@@ -133,7 +133,7 @@ namespace Oczko.GameEngine
             var play = game.Continue();
             do
             {
-                game.GetNextCard();
+                if (play) game.GetNextCard();
                 game.CountPlayerCardsValue(game.PlayerCards);
                 play = game.CheckEye(game.ActualValue);
 
@@ -141,7 +141,7 @@ namespace Oczko.GameEngine
                 {
                     game.GetSummary(game.ActualValue, game.PlayerCards, game.Deck);
                     play = game.Continue();
-                    if(play == false)
+                    if (play == false)
                     {
                         game.CheckLastCard(game);
                         nextGame = game.NextGameQuestion();
@@ -170,7 +170,7 @@ namespace Oczko.GameEngine
             {
                 Console.WriteLine("Dealer got " + PlayerCards.LastOrDefault().ToString());
 
-                Console.WriteLine("His Value is " + game.ActualValue +" You lose");
+                Console.WriteLine("His Value is " + game.ActualValue + " You lose");
             }
         }
 
